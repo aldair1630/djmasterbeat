@@ -1,11 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Egg</title>
+    <title>Aldair R.B</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
   </head>
 
   <body>
@@ -15,23 +22,119 @@
           ><img src="logo.png" alt="logo" class="img-brand"
         /></a>
         <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a class="href-a" href="index.html">Home</a></li>
+          <li><a class="href-a" href="about.html">About</a></li>
+          <li><a class="href-a" href="services.html">Services</a></li>
+          <li><a class="href-a" href="contact.html">Contact</a></li>
         </ul>
       </nav>
       <button class="button-menu-toggle">Menu</button>
-    </div>
-    <div class="contact-container">
-      <h1>Contacto</h1>
-      <p>¡Contáctanos para cualquier consulta o solicitud de información!</p>
-      <form id="myForm" class="myForm">
-        <label for="email">Correo electrónico:</label>
-        <input type="email" id="email" name="email" required />
-        <button type="submit">Enviar</button>
-      </form>
-    </div>
+    </div> 
+    
+  <h1 class="section-header">Contact</h1>
+  
+  <div class="contact-wrapper">
+  
+  <!-- Left contact page --> 
+    
+    <form id="contact-form" class="form-horizontal" role="form">
+       
+      <div class="form-group">
+        <div class="col-sm-12">
+          <input type="text" class="form-control" id="name" placeholder="Name" name="name" value="" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-12">
+          <input type="email" class="form-control" id="email" placeholder="Email" name="email" value="" required>
+        </div>
+      </div>
+
+      <textarea class="form-control" rows="10" placeholder="Message" name="message" required></textarea>
+      
+      <button class="btn btn-primary send-button" id="submit" type="submit" value="SEND">
+        <div class="alt-send-button">
+          <i class="fa fa-paper-plane"></i><span class="send-text">SEND</span>
+        </div>
+      
+      </button>
+      
+    </form>
+    
+  <!-- Left contact page --> 
+    
+      <div class="direct-contact-container">
+
+        <ul class="contact-list">
+          <li class="list-item"><i class="fa fa-map-marker fa-2x"><span class="contact-text place">Apartadó-Antioquia</span></i></li>
+          
+          <li class="list-item"><i class="fa fa-phone fa-2x"><span class="contact-text phone"><a href="tel:3218978096" title="Give me a call">+57 321 897 8096</a></span></i></li>
+          
+          <li class="list-item"><i class="fa fa-envelope fa-2x"><span class="contact-text gmail"><a href="mailto:#" title="Send me an email">djaldair14@gmail.com</a></span></i></li>
+          
+        </ul>
+
+        <hr>
+        <ul class="social-media-list">
+          <li><a href="https://github.com/aldair1630" target="_blank" class="contact-icon">
+            <i class="fa fa-github" aria-hidden="true"></i></a>
+          </li>
+          <li><a href="#" target="_blank" class="contact-icon">
+            <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+          </li>
+          <li><a href="https://twitter.com/aldair1630" target="_blank" class="contact-icon">
+            <i class="fa fa-twitter" aria-hidden="true"></i></a>
+          </li>
+          <li><a href="https://www.instagram.com/djaldair14/" target="_blank" class="contact-icon">
+            <i class="fa fa-instagram" aria-hidden="true"></i></a>
+          </li>       
+        </ul>
+        <hr>
+
+        <div class="copyright">&copy; ALL OF THE RIGHTS RESERVED</div>
+
+      </div>
+    
+  </div>  
+</section>
+<footer class="footer">
+      <div class="footer-content">
+        <h2 class="h2-footer">Aldair Rodriguez</h2>
+        <h5 class="h5-footer">Junior Web Developer</h5>
+      </div>
+      <div class="social-networks">
+        <a
+          class="a-footer"
+          href="https://www.facebook.com/yosoyaldair"
+          target="_blank"
+        >
+          <i class="fab fa-facebook i-footer"></i>
+        </a>
+        <a
+          class="a-footer"
+          href="https://www.instagram.com/djaldair14/"
+          target="_blank"
+        >
+          <i class="fab fa-instagram i-footer"></i>
+        </a>
+        <a
+          class="a-footer"
+          href="https://twitter.com/aldair1630"
+          target="_blank"
+        >
+          <i class="fab fa-twitter i-footer"></i>
+        </a>
+        <a
+          class="a-footer"
+          href="https://www.linkedin.com/in/aldair1630/"
+          target="_blank"
+        >
+          <i class="fab fa-linkedin i-footer"></i>
+        </a>
+      </div>
+    </footer>  
     <script src="script.js"></script>
+    <script src="https://kit.fontawesome.com/192027590f.js" crossorigin="anonymous"></script>
   </body>
 </html>
