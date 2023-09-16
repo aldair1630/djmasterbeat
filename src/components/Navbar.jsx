@@ -16,9 +16,17 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import logo from "../assets/img/logomasterbeat.png";
 import { Link } from "react-router-dom";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import YouTubeIcon from "@mui/icons-material/YouTube";
 
 const drawerWidth = 240;
-const navItems = ["Home", "About", "Contact"];
+const navItems = ["Facebook", "Instagram", "YouTube"];
+const socialIcons = {
+  Facebook: <FacebookIcon />, // Asocia el nombre de la red social con el icono
+  Instagram: <InstagramIcon />,
+  YouTube: <YouTubeIcon />,
+};
 
 function DrawerAppBar(props) {
   const { window } = props;
@@ -31,13 +39,20 @@ function DrawerAppBar(props) {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <Typography variant="h6" sx={{ my: 2 }}>
-        MUI
+        <Link to="/">
+          <img
+            src={logo}
+            alt={logo}
+            style={{ width: "60px", marginTop: "5px" }}
+          />
+        </Link>
       </Typography>
       <Divider />
       <List>
         {navItems.map((item) => (
           <ListItem key={item} disablePadding>
             <ListItemButton sx={{ textAlign: "center" }}>
+              {socialIcons[item]} {/* Utiliza el ícono correspondiente */}
               <ListItemText primary={item} />
             </ListItemButton>
           </ListItem>
@@ -50,9 +65,9 @@ function DrawerAppBar(props) {
     window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: "flex", backgroundColor: "black" }}>
+    <Box sx={{ display: "flex", color: "#483285" }}>
       <CssBaseline />
-      <AppBar component="nav">
+      <AppBar component="nav" sx={{ backgroundColor: "#231059" }}>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -69,15 +84,29 @@ function DrawerAppBar(props) {
             sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
           >
             <Link to="/">
-              <img src={logo} alt={logo} style={{ width: "40px" }} />
+              <img
+                src={logo}
+                alt={logo}
+                style={{ width: "60px", marginTop: "5px" }}
+              />
             </Link>
           </Typography>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
-            {navItems.map((item) => (
-              <Button key={item} sx={{ color: "#fff" }}>
-                {item}
+            <Link to="/">
+              <Button sx={{ color: "#fff" }}>
+                <FacebookIcon />
               </Button>
-            ))}
+            </Link>
+            <Link to="/about">
+              <Button sx={{ color: "#fff" }}>
+                <InstagramIcon />
+              </Button>
+            </Link>
+            <Link to="/contact">
+              <Button sx={{ color: "#fff" }}>
+                <YouTubeIcon />
+              </Button>
+            </Link>
           </Box>
         </Toolbar>
       </AppBar>

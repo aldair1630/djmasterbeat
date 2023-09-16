@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 // import Page from "./views/Page";
 import Home from "./views/Home";
 import About from "./views/About";
+import Contact from "./views/Contact";
 
 function App() {
   // const location = useLocation();
@@ -14,7 +15,9 @@ function App() {
       <Routes>
         {/* <Route path="/" element={<Page />} /> */}
         <Route exact path="/" element={<Home />} />
-        <Route exact path="/" element={<About />} />
+        <Route exact path="/about" element={<About />} />
+        <Route exact path="/contact" element={<Contact />} />
+
         {/* <Route />
         <Route /> */}
       </Routes>
