@@ -1,15 +1,34 @@
-import { Box } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import Draggable from "react-draggable";
+import { Box, TextField, Button, Grid } from "@mui/material";
 
 function Contact() {
-  // Calcula las coordenadas iniciales para centrar el cuadro
   const windowWidth = window.innerWidth;
   const windowHeight = window.innerHeight;
   const boxWidth = 500;
-  const boxHeight = 300;
+  const boxHeight = 550;
+
   const initialLeft = (windowWidth - boxWidth) / 2;
   const initialTop = (windowHeight - boxHeight) / 2;
+
+  const [nombre, setNombre] = useState("");
+  const [apellido, setApellido] = useState("");
+  const [correo, setCorreo] = useState("");
+  const [telefono, setTelefono] = useState("");
+  const [mensaje, setMensaje] = useState("");
+  const [pais, setPais] = useState("");
+  const [correoError, setCorreoError] = useState(false);
+  const [telefonoError, setTelefonoError] = useState(false);
+
+  const validarCorreo = () => {
+    const correoValido = /\S+@\S+\.\S+/;
+    setCorreoError(!correoValido.test(correo));
+  };
+
+  const validarTelefono = () => {
+    const telefonoValido = /^\d{10}$/;
+    setTelefonoError(!telefonoValido.test(telefono));
+  };
 
   return (
     <Draggable defaultPosition={{ x: initialLeft, y: initialTop }}>
@@ -29,7 +48,7 @@ function Contact() {
         <Box
           sx={{
             width: "500px",
-            height: "300px",
+            height: "550px",
             maxHeight: "auto",
             position: "absolute",
             borderRadius: "5px",
@@ -48,40 +67,86 @@ function Contact() {
           }}
         >
           <Box sx={{ margin: "auto" }}>
-            {/* <h1 sx={{ color: "white", fontWeight: 100 }}>Blurred Background</h1>
-            <h2 sx={{ fontSize: "14px" }}>
-              By{" "}
-              <a
-                href="http://ariona.net"
-                rel="follow"
-                target="_blank"
-                sx={{ fontWeight: 700, textDecoration: "none", color: "black" }}
-              >
-                Ariona, Rian
-              </a>
-            </h2>
-            <p sx={{ margin: "20px" }}>Drag this box to move around</p>
-            <p
-              sx={{
-                textTransform: "uppercase",
-                fontWeight: 700,
-                color: "#444",
-              }}
+            <TextField
+              id="nombre"
+              label="Nombre"
+              variant="outlined"
+              fullWidth
+              value={nombre}
+              onChange={(e) => setNombre(e.target.value)}
+              inputProps={{ style: { color: "white" } }}
+              sx={{ mb: 2 }}
+            />
+            <TextField
+              id="apellido"
+              label="Apellido"
+              variant="outlined"
+              fullWidth
+              value={apellido}
+              onChange={(e) => setApellido(e.target.value)}
+              inputProps={{ style: { color: "white" } }}
+              sx={{ mb: 2 }}
+            />
+            <Grid container spacing={2}>
+              <Grid item xs={2}>
+                <TextField
+                  id="pais"
+                  label="País"
+                  variant="outlined"
+                  fullWidth
+                  value={pais}
+                  onChange={(e) => setPais(e.target.value)}
+                  inputProps={{ style: { color: "white" } }}
+                  sx={{ mb: 2 }}
+                />
+              </Grid>
+              <Grid item xs={10}>
+                <TextField
+                  id="telefono"
+                  label="Número Telefónico"
+                  variant="outlined"
+                  fullWidth
+                  value={telefono}
+                  onChange={(e) => setTelefono(e.target.value)}
+                  onBlur={validarTelefono}
+                  error={telefonoError}
+                  helperText={telefonoError ? "Número no válido" : ""}
+                  inputProps={{ style: { color: "white" } }}
+                  sx={{ mb: 2 }}
+                />
+              </Grid>
+            </Grid>
+            <TextField
+              id="correo"
+              label="Correo Electrónico"
+              variant="outlined"
+              fullWidth
+              value={correo}
+              onChange={(e) => setCorreo(e.target.value)}
+              onBlur={validarCorreo}
+              error={correoError}
+              helperText={correoError ? "Correo no válido" : ""}
+              inputProps={{ style: { color: "white" } }}
+              sx={{ mb: 2 }}
+            />
+            <TextField
+              id="mensaje"
+              label="Mensaje"
+              variant="outlined"
+              fullWidth
+              multiline
+              rows={4}
+              value={mensaje}
+              onChange={(e) => setMensaje(e.target.value)}
+              inputProps={{ style: { color: "white" } }}
+              sx={{ mb: 2 }}
+            />
+            <Button
+              variant="contained"
+              style={{ backgroundColor: "transparent", color: "black" }}
             >
-              See also:{" "}
-              <a
-                href="https://codepen.io/ariona/details/LVZLGP/"
-                target="_blank"
-                sx={{
-                  fontWeight: 700,
-                  textDecoration: "none",
-                  color: "#444",
-                  "&:hover": { textDecoration: "underline" },
-                }}
-              >
-                Staged Dropdown Animation
-              </a>
-            </p> */}
+              Enviar
+            </Button>
           </Box>
         </Box>
       </Box>

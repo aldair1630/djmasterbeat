@@ -94,17 +94,12 @@ function DrawerAppBar(props) {
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             <Link to="/">
               <Button sx={{ color: "#fff" }}>
-                <FacebookIcon />
-              </Button>
-            </Link>
-            <Link to="/about">
-              <Button sx={{ color: "#fff" }}>
-                <InstagramIcon />
+                Home
               </Button>
             </Link>
             <Link to="/contact">
               <Button sx={{ color: "#fff" }}>
-                <YouTubeIcon />
+                Contact
               </Button>
             </Link>
           </Box>

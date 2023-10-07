@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Typography, Link, IconButton } from "@mui/material";
-import GitHubIcon from "@mui/icons-material/GitHub";
+import YouTubeIcon from "@mui/icons-material/YouTube";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 
@@ -20,27 +20,27 @@ const Footer = () => {
         Mantente al día con las últimas mezclas y eventos.
       </Typography>
 
-      <Box sx={{ mt: 2 }}>
-        <IconButton
-          href="https://github.com/tudj"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <GitHubIcon fontSize="large" />
-        </IconButton>
+      <Box sx={{ mt: 2, color: "white" }}>
         <IconButton
           href="https://www.facebook.com/tudj"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FacebookIcon fontSize="large" />
+          <FacebookIcon fontSize="large" sx={{ color: "white" }} />
         </IconButton>
         <IconButton
           href="https://www.instagram.com/tudj"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <InstagramIcon fontSize="large" />
+          <InstagramIcon fontSize="large" sx={{ color: "white" }} />
+        </IconButton>
+        <IconButton
+          href="https://github.com/tudj"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <YouTubeIcon fontSize="large" sx={{ color: "white" }} />
         </IconButton>
       </Box>
 
