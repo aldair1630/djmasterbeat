@@ -1,8 +1,8 @@
 import React from "react";
-import Paper from "@mui/material/Paper";
+/* import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
+import ListItem from "@mui/material/ListItem"; */
 import Carousel from "../components/Carousel";
 import Banner from "../components/Banner";
 import Footer from "../components/Footer";

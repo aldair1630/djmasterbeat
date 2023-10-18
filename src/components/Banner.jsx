@@ -15,6 +15,7 @@ const Banner = () => {
   const [isDeleting, setIsDeleting] = React.useState(false);
   const toRotate = ["Deejay", "Productor Musical"];
   const [text, setText] = React.useState("");
+  /* eslint-disable-next-line */
   const [index, setIndex] = React.useState(1);
   const [delta, setDelta] = React.useState(300 - Math.random() * 100);
   const period = 2000;
