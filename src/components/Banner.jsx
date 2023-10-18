@@ -13,8 +13,9 @@ import headerImg from "../assets/img/astrodj3.png";
 const Banner = () => {
   const [loopNum, setLoopNum] = React.useState(0);
   const [isDeleting, setIsDeleting] = React.useState(false);
-  const toRotate = ["Deejay", "Producer Musical"];
+  const toRotate = ["Deejay", "Productor Musical"];
   const [text, setText] = React.useState("");
+
   const [index, setIndex] = React.useState(1);
   const [delta, setDelta] = React.useState(300 - Math.random() * 100);
   const period = 2000;
@@ -75,13 +76,19 @@ const Banner = () => {
           <Grid item xs={12} md={6} xl={7}>
             <TrackVisibility>
               <div>
-                <Typography variant="h2" color="white">
-                  {`Hi! I'm Alexander, and I'm... `}
+                <Typography
+                  variant="h2"
+                  color="white"
+                  sx={{ fontWeight: "500" }}
+                >
+                  {`Hola... Soy Alexander,  `}
                   <span
                     className="txt-rotate"
                     data-rotate='[ "Deejay", "Producer Musical"]'
                   >
-                    <span className="wrap">{text}</span>
+                    <span className="wrap" style={{ fontWeight: "500" }}>
+                      {text}
+                    </span>
                   </span>
                 </Typography>
                 <Typography variant="body1" color="white">
@@ -141,7 +148,7 @@ const Banner = () => {
                   <span>
                     <WhatsAppIcon sx={{ margin: "5px 5px 0 0" }} />
                   </span>
-                  Let’s Connect <KeyboardArrowRightIcon />
+                  Contactame <KeyboardArrowRightIcon />
                 </Button>
               </div>
             </TrackVisibility>

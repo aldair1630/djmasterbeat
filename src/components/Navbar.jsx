@@ -93,14 +93,10 @@ function DrawerAppBar(props) {
           </Typography>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             <Link to="/">
-              <Button sx={{ color: "#fff" }}>
-                Home
-              </Button>
+              <Button sx={{ color: "#fff" }}>Inicio</Button>
             </Link>
             <Link to="/contact">
-              <Button sx={{ color: "#fff" }}>
-                Contact
-              </Button>
+              <Button sx={{ color: "#fff" }}>Contacto</Button>
             </Link>
           </Box>
         </Toolbar>
