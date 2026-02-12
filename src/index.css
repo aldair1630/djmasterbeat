@@ -31,26 +31,25 @@
   will-change: transform;
 }
 
+/* Optimizaciones de Renderizado */
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
-}
-
-html,
-body {
-  max-width: 100%;
-  overflow-x: hidden;
-  position: relative;
-}
-
-body {
-  margin: 0;
-  font-family: var(--font-main);
+  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--bg-dark);
-  color: #ffffff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-dark) !important;
+  color: white;
+  font-family: var(--font-main);
+  overflow-x: hidden;
 }
 
 /* Background overlay for that "wow" effect */
@@ -72,7 +71,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
-/* Custom Scrollbar */
+/* Scrollbar Moderno */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -82,8 +81,12 @@ code {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(var(--secondary), var(--primary));
+  background: var(--primary);
   border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary);
 }
 
 /* Global Animations */
@@ -149,18 +152,17 @@ code {
 }
 
 /* Mouse Follower Glow */
-.mouse-follower {
+.mouse-spotlight {
   position: fixed;
-  width: 20px;
-  height: 20px;
-  background: var(--primary);
-  border-radius: 50%;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: width 0.3s, height 0.3s, background-color 0.3s, opacity 0.3s;
-  mix-blend-mode: difference;
-  opacity: 0.8;
+  z-index: 0;
+  background: radial-gradient(600px circle at var(--mouse-x, 0) var(--mouse-y, 0),
+      rgba(0, 242, 255, 0.05),
+      transparent 80%);
 }
 
 /* Animaciones de Scroll */

@@ -1,15 +1,25 @@
-import "./App.css";
 import React, { useEffect } from "react";
-import { Route, Routes /*useLocation*/ } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./components/Navbar";
-// import Page from "./views/Page";
+import AudioPlayer from "./components/AudioPlayer";
+
 import Home from "./views/Home";
 import About from "./views/About";
 import Contact from "./views/Contact";
 import Services from "./views/Services";
-import AudioPlayer from "./components/AudioPlayer";
 
 function App() {
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
+      document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
   useEffect(() => {
     const reveal = () => {
       const reveals = document.querySelectorAll(".reveal");
@@ -23,52 +33,22 @@ function App() {
       }
     };
     window.addEventListener("scroll", reveal);
-    reveal(); // Check on mount
+    reveal();
     return () => window.removeEventListener("scroll", reveal);
-  }, []);
-
-  useEffect(() => {
-    const follower = document.createElement('div');
-    follower.className = 'mouse-follower';
-    document.body.appendChild(follower);
-
-    const moveFollower = (e) => {
-      follower.style.left = e.clientX + 'px';
-      follower.style.top = e.clientY + 'px';
-
-      const target = e.target;
-      const isClickable = target.closest('button, a, .MuiButtonBase-root, [role="button"]');
-
-      if (isClickable) {
-        follower.classList.add('active');
-      } else {
-        follower.classList.remove('active');
-      }
-    };
-
-    window.addEventListener('mousemove', moveFollower);
-    return () => {
-      window.removeEventListener('mousemove', moveFollower);
-      document.body.removeChild(follower);
-    };
   }, []);
 
   return (
     <div className="App">
-      <div className="bg-shape shape-1"></div>
-      <div className="bg-shape shape-2"></div>
+      <div className="mouse-spotlight" />
+      <div className="bg-shape shape-1" />
+      <div className="bg-shape shape-2" />
       <Navbar />
       <AudioPlayer />
-      {/* {location.pathname !== "/" && <Navbar />} */}
       <Routes>
-        {/* <Route path="/" element={<Page />} /> */}
-        <Route exact path="/" element={<Home />} />
-        <Route exact path="/about" element={<About />} />
-        <Route exact path="/services" element={<Services />} />
-        {/* <Route exact path="/contact" element={<Contact />} /> */}
-
-        {/* <Route />
-        <Route /> */}
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </div>
   );

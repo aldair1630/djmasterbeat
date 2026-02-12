@@ -187,6 +187,8 @@ const Banner = () => {
               src={headerImg}
               alt="DJ Astro"
               className="floating-astronaut"
+              loading="eager"
+              decoding="async"
               sx={{
                 width: "100%",
                 maxWidth: "500px",

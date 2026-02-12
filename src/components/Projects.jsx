@@ -117,11 +117,11 @@ export const Projects = () => {
           </Tabs>
         </Box>
 
-        <Grid container spacing={{ xs: 3, md: 4 }}>
+        <Grid container spacing={{ xs: 3, md: 4 }} alignItems="stretch">
           {filteredProjects.map((project, index) => (
-            <Grid item xs={12} sm={6} md={4} key={index}>
+            <Grid item xs={12} sm={6} md={4} key={index} sx={{ display: "flex" }}>
               <Fade in={true} timeout={500 + index * 200}>
-                <Box>
+                <Box sx={{ width: "100%", display: "flex" }}>
                   <ProjectCard {...project} />
                 </Box>
               </Fade>

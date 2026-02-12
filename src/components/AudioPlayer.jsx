@@ -53,10 +53,10 @@ const AudioPlayer = () => {
     >
       <audio
         ref={audioRef}
-        src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" // Demo URL, user should replace with their own
+        src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" // Updated to a different demo song
         loop
       />
-      
+
       <Box sx={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
         <IconButton
           onClick={togglePlay}

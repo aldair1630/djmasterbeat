@@ -7,6 +7,7 @@ export const ProjectCard = ({ title, description, imgUrl, url }) => {
     <Box 
       sx={{ 
         position: "relative",
+        height: "100%",
         "&:hover .overlay": { opacity: 1 },
         "&:hover .content": { transform: "translateY(0)" },
         "&:hover img": { transform: "scale(1.1)" }
@@ -16,16 +17,23 @@ export const ProjectCard = ({ title, description, imgUrl, url }) => {
         elevation={0}
         sx={{
           position: "relative",
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
           borderRadius: "24px",
           overflow: "hidden",
           background: "rgba(255, 255, 255, 0.03)",
-          border: "1px solid rgba(255, 255, 255, 0.05)",
+          border: "1px solid rgba(255, 255, 255, 0.1)",
           transition: "all 0.5s ease",
-          cursor: "pointer"
+          cursor: "pointer",
+          "&:hover": {
+            background: "rgba(255, 255, 255, 0.06)",
+            borderColor: "rgba(0, 242, 255, 0.3)",
+          }
         }}
       >
         {/* Image Container */}
-        <Box sx={{ position: "relative", height: "250px", overflow: "hidden" }}>
+        <Box sx={{ position: "relative", height: "250px", minHeight: "250px", overflow: "hidden" }}>
           <img 
             src={imgUrl} 
             alt={title} 
