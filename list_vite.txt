@@ -1,0 +1,8 @@
+djmasterbeat@0.1.0 D:\djmasterbeat
+├─┬ @vitejs/plugin-react@5.1.4 invalid: "^4.0.0" from the root project
+│ └── vite@ deduped invalid: "^4.0.0" from the root project, "^4.2.0 || ^5.0.0 || ^6.0.0 || ^7.0.0" from node_modules/@vitejs/plugin-react
+└── vite@ invalid: "^4.0.0" from the root project, "^4.2.0 || ^5.0.0 || ^6.0.0 || ^7.0.0" from node_modules/@vitejs/plugin-react
+
+npm error code ELSPROBLEMS
+npm error invalid: vite@ D:\djmasterbeat\node_modules\vite
+npm error A complete log of this run can be found in: C:\Users\Aldair\AppData\Local\npm-cache\_logs\2026-02-11T06_14_10_495Z-debug-0.log

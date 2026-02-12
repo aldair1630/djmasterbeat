@@ -1,0 +1,4 @@
+npm warn tar TAR_ENTRY_ERROR UNKNOWN: unknown error, open 'D:\djmasterbeat\node_modules\node-abort-controller\browser.js'
+npm warn tar TAR_ENTRY_ERROR UNKNOWN: unknown error, open 'D:\djmasterbeat\node_modules\deprecated-react-native-prop-types\DeprecatedTextInputPropTypes.js'
+npm warn tar TAR_ENTRY_ERROR UNKNOWN: unknown error, open 'D:\djmasterbeat\node_modules\core-js-compat\external.json'
+npm warn deprecated uglify-es@3.3.9: support for ECMAScript is superseded by `uglify-js` as of v3.13.0

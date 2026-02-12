@@ -1,0 +1,5 @@
+npm error code EJSONPARSE
+npm error JSON.parse Invalid package.json: JSONParseError: Unexpected non-whitespace character after JSON at position 945 (line 37 column 2) while parsing near "...ct-app/jest\"\r\n  ]\r\n},\r\n\"browserslist\": {..."
+npm error JSON.parse Failed to parse JSON data.
+npm error JSON.parse Note: package.json must be actual JSON, not just JavaScript.
+npm error A complete log of this run can be found in: C:\Users\Aldair\AppData\Local\npm-cache\_logs\2026-02-11T06_07_54_778Z-debug-0.log
