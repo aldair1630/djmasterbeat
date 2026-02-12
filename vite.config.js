@@ -9,6 +9,6 @@ export default defineConfig({
     open: true,
   },
   build: {
-    outDir: 'build', // CRA uses 'build' by default, Vite uses 'dist'
+    outDir: 'dist',
   },
 });
