@@ -80,8 +80,8 @@ const Banner = () => {
         alignItems: "center",
         position: "relative",
         overflow: "hidden",
-        pt: { xs: 12, md: 0 },
-        pb: { xs: 8, md: 0 }
+        pt: { xs: 20, md: 15 },
+        pb: { xs: 10, md: 10 }
       }}
     >
       <Container>
@@ -89,7 +89,7 @@ const Banner = () => {
           <Grid item xs={12} md={7}>
             <animated.div style={fadeIn}>
               <Box sx={{ mb: 2, textAlign: { xs: "center", md: "left" } }}>
-                <Typography
+                {/* <Typography
                   variant="overline"
                   sx={{
                     color: "var(--primary)",
@@ -106,22 +106,22 @@ const Banner = () => {
                   }}
                 >
                   DJ MASTER BEAT
-                </Typography>
+                </Typography> */}
                 <Typography
                   variant="h1"
                   sx={{
                     color: "white",
                     fontWeight: 800,
-                    fontSize: { xs: "2.8rem", sm: "3.5rem", md: "5.5rem" },
+                    fontSize: { xs: "2rem", sm: "3rem", md: "5rem" },
                     lineHeight: 1.1,
                     fontFamily: "var(--font-display)",
                     mb: 2,
                     wordBreak: "break-word"
                   }}
                 >
-                  {`I'M `}
+                  {`MASTER `}
                   <span style={{ color: "var(--secondary)", WebkitTextStroke: "1px var(--primary)", textShadow: "0 0 20px var(--secondary)" }}>
-                    ALEX
+                    BEAT
                   </span>
                 </Typography>
                 <Typography
