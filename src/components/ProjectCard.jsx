@@ -4,8 +4,8 @@ import LaunchIcon from "@mui/icons-material/Launch";
 
 export const ProjectCard = ({ title, description, imgUrl, url }) => {
   return (
-    <Box 
-      sx={{ 
+    <Box
+      sx={{
         position: "relative",
         height: "100%",
         "&:hover .overlay": { opacity: 1 },
@@ -37,16 +37,21 @@ export const ProjectCard = ({ title, description, imgUrl, url }) => {
           <img 
             src={imgUrl} 
             alt={title} 
+            loading="lazy"
+            decoding="async"
             style={{ 
               width: "100%", 
               height: "100%", 
               objectFit: "cover",
               transition: "transform 0.6s ease"
             }} 
+            onError={(e) => {
+              e.target.src = 'https://images.unsplash.com/photo-1571266028243-3716f02d2d2e?auto=format&fit=crop&q=80&w=800'; // Fallback a una imagen de DJ genérica si falla la carga
+            }}
           />
-          
+
           {/* Overlay on Hover */}
-          <Box 
+          <Box
             className="overlay"
             sx={{
               position: "absolute",
@@ -54,26 +59,35 @@ export const ProjectCard = ({ title, description, imgUrl, url }) => {
               left: 0,
               right: 0,
               bottom: 0,
-              background: "linear-gradient(to top, rgba(10,10,12,0.9) 0%, rgba(0,242,255,0.2) 100%)",
+              background: "linear-gradient(to top, rgba(10,10,12,0.95) 0%, rgba(0,242,255,0.4) 100%)",
               opacity: 0,
               transition: "opacity 0.4s ease",
               display: "flex",
+              flexDirection: "column",
               alignItems: "center",
               justifyContent: "center",
+              gap: 2,
               zIndex: 1
             }}
           >
-            <Link 
-              href={url} 
-              target="_blank" 
-              sx={{ 
-                color: "white", 
-                bgcolor: "var(--primary)", 
-                p: 2, 
+            <Typography variant="caption" sx={{ color: 'white', fontWeight: 800, letterSpacing: 2 }}>
+              ESCUCHAR AHORA
+            </Typography>
+            <Link
+              href={url}
+              target="_blank"
+              sx={{
+                color: "white",
+                bgcolor: "var(--primary)",
+                p: 2,
                 borderRadius: "50%",
                 display: "flex",
                 boxShadow: "0 0 20px var(--primary)",
-                "&:hover": { transform: "scale(1.1)" }
+                "&:hover": {
+                  transform: "scale(1.1)",
+                  boxShadow: "0 0 30px var(--primary)"
+                },
+                transition: "all 0.3s ease"
               }}
             >
               <LaunchIcon sx={{ color: "black" }} />
@@ -82,28 +96,28 @@ export const ProjectCard = ({ title, description, imgUrl, url }) => {
         </Box>
 
         {/* Text Content */}
-        <Box 
+        <Box
           className="content"
-          sx={{ 
-            p: 3, 
+          sx={{
+            p: 3,
             transform: "translateY(10px)",
             transition: "transform 0.4s ease"
           }}
         >
-          <Typography 
-            variant="h6" 
-            sx={{ 
-              color: "white", 
-              fontWeight: 700, 
+          <Typography
+            variant="h6"
+            sx={{
+              color: "white",
+              fontWeight: 700,
               mb: 1,
               fontFamily: "var(--font-display)"
             }}
           >
             {title}
           </Typography>
-          <Typography 
-            variant="body2" 
-            sx={{ 
+          <Typography
+            variant="body2"
+            sx={{
               color: "rgba(255,255,255,0.5)",
               fontSize: "0.85rem"
             }}

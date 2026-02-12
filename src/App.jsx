@@ -8,6 +8,7 @@ import Home from "./views/Home";
 import About from "./views/About";
 import Contact from "./views/Contact";
 import Services from "./views/Services";
+import NotFound from "./views/NotFound";
 
 function App() {
   useEffect(() => {
@@ -49,6 +50,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );

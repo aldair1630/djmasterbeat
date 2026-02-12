@@ -127,20 +127,29 @@ function DrawerAppBar(props) {
         ))}
       </List>
 
-      <Box sx={{ mt: 4 }}>
+      <Box sx={{ mt: 4, pb: 2 }}>
         <Typography variant="caption" sx={{ color: "rgba(255,255,255,0.3)", display: "block", mb: 2, letterSpacing: 2 }}>
           SÍGUEME
         </Typography>
-        <Box sx={{ display: "flex", justifyContent: "center", gap: 2 }}>
+        <Box sx={{ 
+          display: "flex", 
+          justifyContent: "center", 
+          gap: 1, 
+          flexWrap: "wrap",
+          px: 1 
+        }}>
           {socialLinks.map((social, index) => (
             <IconButton
               key={index}
               href={social.url}
               target="_blank"
+              size="small"
               sx={{
                 color: "white",
                 bgcolor: "rgba(255,255,255,0.05)",
-                "&:hover": { color: "var(--primary)", bgcolor: "rgba(0, 242, 255, 0.1)" }
+                p: 1.2,
+                "&:hover": { color: "var(--primary)", bgcolor: "rgba(0, 242, 255, 0.1)" },
+                "& svg": { fontSize: "1.3rem" }
               }}
             >
               {social.icon}
