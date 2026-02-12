@@ -11,10 +11,24 @@
   --font-display: 'Syncopate', sans-serif;
 }
 
-/* Favicon Helper Style (solo referencia visual) */
-.favicon-circular {
-  border-radius: 50%;
-  overflow: hidden;
+/* Animación de flotación para el astronauta */
+@keyframes float-astronaut {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-40px) rotate(3deg);
+  }
+
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+
+.floating-astronaut {
+  animation: float-astronaut 4s ease-in-out infinite;
+  will-change: transform;
 }
 
 * {
@@ -23,7 +37,8 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   max-width: 100%;
   overflow-x: hidden;
   position: relative;
@@ -147,9 +162,20 @@ code {
 }
 
 @keyframes scroll-down {
-  0% { transform: translateY(0); opacity: 0; }
-  50% { transform: translateY(10px); opacity: 1; }
-  100% { transform: translateY(20px); opacity: 0; }
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+
+  50% {
+    transform: translateY(10px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
 }
 
 .scroll-indicator {

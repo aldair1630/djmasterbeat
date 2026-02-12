@@ -15,8 +15,8 @@ const Banner = () => {
   const [isDeleting, setIsDeleting] = React.useState(false);
   const toRotate = ["Deejay", "Productor Musical", "Show Maker"];
   const [text, setText] = React.useState("");
-  const [delta, setDelta] = React.useState(200 - Math.random() * 100);
-  const period = 2000;
+  const [delta, setDelta] = React.useState(100);
+  const period = 1500;
 
   React.useEffect(() => {
     let ticker = setInterval(() => {
@@ -36,7 +36,7 @@ const Banner = () => {
     setText(updatedText);
 
     if (isDeleting) {
-      setDelta((prevDelta) => prevDelta / 2);
+      setDelta(50);
     }
 
     if (!isDeleting && updatedText === fullText) {
@@ -45,19 +45,22 @@ const Banner = () => {
     } else if (isDeleting && updatedText === "") {
       setIsDeleting(false);
       setLoopNum(loopNum + 1);
-      setDelta(500);
+      setDelta(200);
     }
   };
 
   const floatingAnimation = useSpring({
-    from: { transform: 'translateY(0px)' },
+    from: { transform: 'translateY(0px) rotate(0deg)' },
     to: async (next) => {
       while (true) {
-        await next({ transform: 'translateY(-30px)' });
-        await next({ transform: 'translateY(0px)' });
+        await next({ transform: 'translateY(-50px) rotate(3deg)' });
+        await next({ transform: 'translateY(0px) rotate(0deg)' });
       }
     },
-    config: { duration: 3000 },
+    config: {
+      duration: 4000,
+      easing: (t) => t * t * (3 - 2 * t) // Efecto suave de entrada/salida
+    },
   });
 
   const fadeIn = useSpring({
@@ -179,18 +182,17 @@ const Banner = () => {
           </Grid>
 
           <Grid item xs={12} md={5} sx={{ display: "flex", justifyContent: "center" }}>
-            <animated.div style={floatingAnimation}>
-              <Box
-                component="img"
-                src={headerImg}
-                alt="DJ Astro"
-                sx={{
-                  width: "100%",
-                  maxWidth: "500px",
-                  filter: "drop-shadow(0 0 50px var(--secondary))",
-                }}
-              />
-            </animated.div>
+            <Box
+              component="img"
+              src={headerImg}
+              alt="DJ Astro"
+              className="floating-astronaut"
+              sx={{
+                width: "100%",
+                maxWidth: "500px",
+                filter: "drop-shadow(0 0 50px var(--secondary))",
+              }}
+            />
           </Grid>
         </Grid>
       </Container>
