@@ -151,14 +151,51 @@ code {
 /* Mouse Follower Glow */
 .mouse-follower {
   position: fixed;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(0, 242, 255, 0.08) 0%, transparent 70%);
+  width: 20px;
+  height: 20px;
+  background: var(--primary);
   border-radius: 50%;
   pointer-events: none;
-  z-index: -1;
+  z-index: 9999;
   transform: translate(-50%, -50%);
-  transition: width 0.3s, height 0.3s;
+  transition: width 0.3s, height 0.3s, background-color 0.3s, opacity 0.3s;
+  mix-blend-mode: difference;
+  opacity: 0.8;
+}
+
+/* Animaciones de Scroll */
+.reveal {
+  position: relative;
+  opacity: 0;
+  transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+  opacity: 1;
+}
+
+.reveal-fade-up {
+  transform: translateY(50px);
+}
+
+.reveal-fade-up.active {
+  transform: translateY(0);
+}
+
+.reveal-fade-left {
+  transform: translateX(-50px);
+}
+
+.reveal-fade-left.active {
+  transform: translateX(0);
+}
+
+.reveal-fade-right {
+  transform: translateX(50px);
+}
+
+.reveal-fade-right.active {
+  transform: translateX(0);
 }
 
 @keyframes scroll-down {

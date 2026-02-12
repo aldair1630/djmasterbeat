@@ -9,10 +9,12 @@ function Home() {
   return (
     <Box>
       <Banner />
-      <Box sx={{ mt: { xs: 5, md: 10 } }}>
+      <Box className="reveal reveal-fade-up" sx={{ mt: { xs: 5, md: 10 } }}>
         <Projects />
       </Box>
-      <Carousel />
+      <Box className="reveal reveal-fade-up">
+        <Carousel />
+      </Box>
       <Footer />
     </Box>
   );

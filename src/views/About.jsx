@@ -7,8 +7,12 @@ import {
   Paper,
   Stack,
   useTheme,
-  useMediaQuery
+  useMediaQuery,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails
 } from "@mui/material";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MusicNoteIcon from "@mui/icons-material/MusicNote";
 import StarIcon from "@mui/icons-material/Star";
 import SpeakerIcon from "@mui/icons-material/Speaker";
@@ -166,6 +170,67 @@ function About() {
               </Grid>
             ))}
           </Grid>
+        </Box>
+
+        {/* FAQ Section */}
+        <Box sx={{ mt: { xs: 8, md: 15 } }} className="reveal reveal-fade-up">
+          <Typography 
+            variant="h4" 
+            sx={{ 
+              textAlign: "center", 
+              fontFamily: "var(--font-display)", 
+              color: "white", 
+              mb: { xs: 4, md: 8 },
+              fontSize: { xs: "1.8rem", md: "2.5rem" }
+            }}
+          >
+            PREGUNTAS <span style={{ color: "var(--primary)" }}>FRECUENTES</span>
+          </Typography>
+          <Box sx={{ maxWidth: "800px", mx: "auto" }}>
+            {[
+              {
+                q: "¿Llevas tu propio equipo de sonido e iluminación?",
+                a: "Sí, cuento con sistemas profesionales de audio (JBL, EV) e iluminación robótica controlada por DMX para adaptarme a cualquier tamaño de evento."
+              },
+              {
+                q: "¿Puedes tocar géneros específicos a pedido?",
+                a: "¡Absolutamente! Mi trabajo es crear la atmósfera que deseas. Coordinamos el setlist previamente para asegurar que tus géneros favoritos sean los protagonistas."
+              },
+              {
+                q: "¿Trabajas fuera de la ciudad?",
+                a: "Sí, realizo presentaciones a nivel nacional e internacional. Los costos de traslado se cotizan de forma independiente según la ubicación."
+              },
+              {
+                q: "¿Con cuánta anticipación debo reservar?",
+                a: "Recomiendo reservar con al menos 2 a 4 semanas de anticipación para asegurar la fecha, especialmente en temporadas altas de eventos."
+              }
+            ].map((faq, index) => (
+              <Accordion 
+                key={index}
+                sx={{ 
+                  background: "rgba(255,255,255,0.02)", 
+                  color: "white",
+                  mb: 2,
+                  borderRadius: "15px !important",
+                  border: "1px solid rgba(255,255,255,0.05)",
+                  "&::before": { display: "none" },
+                  "&:hover": { borderColor: "var(--primary)" }
+                }}
+              >
+                <AccordionSummary 
+                  expandIcon={<ExpandMoreIcon sx={{ color: "var(--primary)" }} />}
+                  sx={{ py: 1 }}
+                >
+                  <Typography sx={{ fontWeight: 700, fontSize: "1.1rem" }}>{faq.q}</Typography>
+                </AccordionSummary>
+                <AccordionDetails sx={{ pb: 3 }}>
+                  <Typography sx={{ color: "rgba(255,255,255,0.7)", lineHeight: 1.6 }}>
+                    {faq.a}
+                  </Typography>
+                </AccordionDetails>
+              </Accordion>
+            ))}
+          </Box>
         </Box>
       </Container>
     </Box>
